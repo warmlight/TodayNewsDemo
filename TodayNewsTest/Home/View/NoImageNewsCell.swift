@@ -10,6 +10,23 @@ import UIKit
 
 class NoImageNewsCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var publishTime: UILabel!
+    
+    var news: NewsContent {
+        get {
+            return self.news
+        }
+        set {
+            titleLabel.text = newValue.title!
+            sourceLabel.text = newValue.source!
+            commentCountLabel.text = "\(newValue.commentCount!)评论"
+            publishTime.text = "\(newValue.publishTime!)"
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

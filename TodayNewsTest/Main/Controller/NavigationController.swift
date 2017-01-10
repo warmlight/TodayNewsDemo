@@ -9,7 +9,27 @@
 import UIKit
 
 class NavigationController: UINavigationController {
-
+    //这个方法，是当这个类第一次被创建时调用，且只调用一次
+    override class func initialize() {
+        
+        let navBar = UINavigationBar.appearance()
+        navBar.barTintColor = UIColor.whiteColor()
+        navBar.tintColor = UIColor.whiteColor()
+        navBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFontOfSize(17)]
+    }
+    
+    override func pushViewController(viewController: UIViewController, animated: Bool) {
+        if viewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "lefterbackicon_titlebar_28x28_"), style: .Plain, target: self, action: #selector(navigationBack))
+        }
+        super.pushViewController(viewController, animated: true)
+    }
+    
+    func navigationBack() {
+        popViewControllerAnimated(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

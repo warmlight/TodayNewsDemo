@@ -7,92 +7,90 @@
 //
 
 import UIKit
+import MJRefresh
 
-class HomeCategoryListControllerTableViewController: UITableViewController {
+class HomeCategoryListController: UITableViewController {
     var lastSelectedTabIndex: Int?
-    var  topCategoryTitle: HomeTopTitle?
-    private var newsArr = [NSArray]()
+    var topCategoryTitle: HomeTopTitle?
+    
+    private var newsArr = [NewsContent]()
     private var pullRefreshTime: NSTimeInterval?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
+        setUpRefreshUI()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        getNetworkData()
+    }
+    
+    private func getNetworkData() {
+        //闭包中self不可以省略,懒加载中也不可以省略
+        NetworkTools.shareNetworkTool.refreshNewsList((topCategoryTitle?.category)!) { [weak self] (newsList) in
+            self?.pullRefreshTime = NSDate().timeIntervalSince1970
+            self?.tableView.mj_header?.endRefreshing()
+            self?.newsArr = newsList!
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func initUI() {
+        self.definesPresentationContext = true //当搜索框弹出时是否覆盖当前的视图控制器
+        tableView.frame = CGRectMake(0, 64, SCREENW, SCREENH - (64 + 49))
+        let cellNib = UINib(nibName: "NoImageNewsCell", bundle: nil)
+        //从nib加载cell 要和xib里cell的identifier一致
+        tableView.registerNib(cellNib, forCellReuseIdentifier: "noImageNews")
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableViewAutomaticDimension
+        //切换tabbar
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(tabBarSelected), name: TabBarDidSelectedNotification, object: nil)
+    }
+    
+    func setUpRefreshUI() {
+        weak var weakSelf = self
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            weakSelf?.getNetworkData()
+        })
+        
+        self.tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+            NetworkTools.shareNetworkTool.moreNewsList((weakSelf?.topCategoryTitle?.category)!, lastRefreshTime: (weakSelf?.pullRefreshTime)!, finished: { (newsList) in
+                weakSelf?.tableView.mj_footer.endRefreshing()
+                if newsList?.count > 0 {
+                    weakSelf?.newsArr = (weakSelf?.newsArr)! + newsList!
+                }
+                weakSelf?.tableView.reloadData()
+            })
+        })
+    }
+    
+    func tabBarSelected() {
+        if lastSelectedTabIndex == tabBarController?.selectedIndex {
+//            tableView.mj_header.beginRefreshing()
+        }
+        lastSelectedTabIndex = tabBarController!.selectedIndex
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+extension HomeCategoryListController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(newsArr.count)
+        return newsArr.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("noImageNews") as! NoImageNewsCell
+        let news = newsArr[indexPath.row]
+        cell.news = news
+//        cell.titleLabel?.text = news.title
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

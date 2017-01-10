@@ -22,14 +22,15 @@ class YMFirstIntroduceController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginClick(sender: UIButton) {
+        print("登陆")
     }
-    */
-
+    
+    @IBAction func enterButtonClick(sender: UIButton) {
+        print("点击进入按钮")
+        //手动改变sb的rootController 一定要从bundle里取 不然显示不正确
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        UIApplication.sharedApplication().keyWindow?.rootViewController = viewController;
+    }
 }

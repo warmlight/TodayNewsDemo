@@ -1,25 +1,174 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First Introduce Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="YMFirstIntroduceController" customModule="TodayNewsTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="introduceImg" translatesAutoresizingMaskIntoConstraints="NO" id="zzQ-14-rNp">
+                                <rect key="frame" x="67" y="95" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-ag-4kQ">
+                                <rect key="frame" x="95" y="340" width="184" height="35"/>
+                                <state key="normal" image="phone"/>
+                                <connections>
+                                    <action selector="loginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kh0-as-TQ3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2L5-qw-OMi">
+                                <rect key="frame" x="95" y="395" width="184" height="35"/>
+                                <state key="normal" image="sina"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xr-x2-ben">
+                                <rect key="frame" x="157" y="595" width="60" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="TFW-FH-7Wu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="立即进入">
+                                    <color key="titleColor" red="0.38415464743589745" green="0.38415464743589745" blue="0.38415464743589745" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="enterButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DeB-3G-4KX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BVj-ag-4kQ" firstAttribute="top" secondItem="zzQ-14-rNp" secondAttribute="bottom" constant="117" id="3Vk-GU-Jzv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2xr-x2-ben" secondAttribute="bottom" constant="50" id="50q-jp-iFg"/>
+                            <constraint firstItem="BVj-ag-4kQ" firstAttribute="centerX" secondItem="zzQ-14-rNp" secondAttribute="centerX" id="B4o-M8-D11"/>
+                            <constraint firstItem="zzQ-14-rNp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BR7-Gi-bur"/>
+                            <constraint firstItem="2xr-x2-ben" firstAttribute="centerX" secondItem="2L5-qw-OMi" secondAttribute="centerX" id="SlL-V2-Dti"/>
+                            <constraint firstItem="2xr-x2-ben" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T0C-x0-Pvk"/>
+                            <constraint firstItem="BVj-ag-4kQ" firstAttribute="leading" secondItem="2L5-qw-OMi" secondAttribute="leading" id="Tj9-2R-HWo"/>
+                            <constraint firstItem="zzQ-14-rNp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="ZAS-hU-NNp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zzQ-14-rNp" secondAttribute="bottom" constant="444" id="fQF-di-8xX"/>
+                            <constraint firstItem="2L5-qw-OMi" firstAttribute="top" secondItem="BVj-ag-4kQ" secondAttribute="bottom" constant="20" id="h3W-Pe-XSg"/>
+                            <constraint firstItem="zzQ-14-rNp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="kB6-Zc-P8t"/>
+                            <constraint firstItem="2L5-qw-OMi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wtr-r1-YNF"/>
+                            <constraint firstItem="BVj-ag-4kQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zia-3n-b50"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-2354.5" y="877.5"/>
+        </scene>
+        <!--Mine View Controller-->
+        <scene sceneID="MZz-uX-YLf">
+            <objects>
+                <viewController id="Xye-pF-dBc" customClass="MineViewController" customModule="TodayNewsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jb8-Qe-X1d"/>
+                        <viewControllerLayoutGuide type="bottom" id="FNg-El-4Y0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p5E-hb-3iR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.46023141169132376" blue="0.55151241284393437" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2e7-LY-5Zd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKd-wb-wED" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="1254"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="WcT-tE-Ie6">
+            <objects>
+                <viewController id="0Vf-et-J8O" customClass="HomeViewController" customModule="TodayNewsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c3x-C5-oAr"/>
+                        <viewControllerLayoutGuide type="bottom" id="S9Q-DC-6gp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ORk-Bd-UoD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.98701337840000003" blue="0.47458667500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hzU-91-A7t"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m8N-R3-Z9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="562"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZNb-Af-uzM">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fPT-gH-x6T" customClass="TabBarController" customModule="TodayNewsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="mGz-ey-QSw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4Lm-Od-uae" kind="relationship" relationship="viewControllers" id="5M3-Wh-Vwi"/>
+                        <segue destination="Tw5-XL-vPj" kind="relationship" relationship="viewControllers" id="mf5-gR-bpI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K8b-fr-f3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1796" y="893"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="TKi-mT-WE1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Lm-Od-uae" customClass="NavigationController" customModule="TodayNewsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="home_tabbar_22x22_" id="mhJ-gx-BxO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XR9-Qu-aoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Vf-et-J8O" kind="relationship" relationship="rootViewController" id="PgJ-gZ-rbn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAC-Kh-YHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-976" y="562"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="j7e-O4-Uzd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tw5-XL-vPj" customClass="NavigationController" customModule="TodayNewsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" image="mine_tabbar_press_22x22_" id="AkU-f6-dng"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BLX-ve-aeq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xye-pF-dBc" kind="relationship" relationship="rootViewController" id="YNN-ru-68z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXo-ws-ZKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-976" y="1254"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home_tabbar_22x22_" width="22" height="22"/>
+        <image name="introduceImg" width="320" height="164"/>
+        <image name="mine_tabbar_press_22x22_" width="22" height="22"/>
+        <image name="phone" width="184" height="35"/>
+        <image name="sina" width="184" height="35"/>
+    </resources>
 </document>

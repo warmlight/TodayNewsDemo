@@ -20,10 +20,12 @@ class NoImageNewsCell: UITableViewCell {
             return self.news
         }
         set {
-            titleLabel.text = newValue.title!
-            sourceLabel.text = newValue.source!
+            titleLabel.text = newValue.title ?? ""
+            sourceLabel.text = newValue.source ?? ""
             commentCountLabel.text = "\(newValue.commentCount!)评论"
-            publishTime.text = "\(newValue.publishTime!)"
+            let timeInterval = NSTimeInterval(newValue.publishTime!)
+            let timeDate = NSDate(timeIntervalSince1970: timeInterval)
+            publishTime.text = timeAgoSince(timeDate)
         }
     }
     

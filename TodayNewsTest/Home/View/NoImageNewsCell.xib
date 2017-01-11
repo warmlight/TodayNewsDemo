@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIV-mg-s88">
-                        <rect key="frame" x="22" y="24" width="338" height="108"/>
+                        <rect key="frame" x="22" y="20" width="338" height="116"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -27,23 +27,23 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="来源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v0-cy-mCF">
-                        <rect key="frame" x="27" y="143" width="26" height="16"/>
-                        <color key="backgroundColor" red="1" green="0.98701337840000003" blue="0.47458667500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdo-Df-wdg">
+                        <rect key="frame" x="61" y="147" width="39" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.42902644230769227" green="0.42902644230769227" blue="0.42902644230769227" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.42902644229999998" green="0.42902644229999998" blue="0.42902644229999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkS-ng-XvS">
-                        <rect key="frame" x="108" y="143" width="52" height="16"/>
+                        <rect key="frame" x="108" y="147" width="52" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.42902644229999998" green="0.42902644229999998" blue="0.42902644229999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdo-Df-wdg">
-                        <rect key="frame" x="61" y="143" width="39" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="来源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v0-cy-mCF">
+                        <rect key="frame" x="27" y="147" width="26" height="16"/>
+                        <color key="backgroundColor" red="1" green="0.98701337840000003" blue="0.47458667500000001" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.42902644229999998" green="0.42902644229999998" blue="0.42902644229999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.42902644230769227" green="0.42902644230769227" blue="0.42902644230769227" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -54,9 +54,9 @@
                     <constraint firstItem="4v0-cy-mCF" firstAttribute="top" secondItem="sIV-mg-s88" secondAttribute="bottom" constant="11" id="HCJ-Nr-Eew"/>
                     <constraint firstItem="4v0-cy-mCF" firstAttribute="centerY" secondItem="kdo-Df-wdg" secondAttribute="centerY" id="JSp-6e-jgp"/>
                     <constraint firstItem="kdo-Df-wdg" firstAttribute="centerY" secondItem="zkS-ng-XvS" secondAttribute="centerY" id="JjJ-UW-2zN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4v0-cy-mCF" secondAttribute="bottom" constant="16" id="Ml8-vh-ktn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4v0-cy-mCF" secondAttribute="bottom" constant="12" id="Ml8-vh-ktn"/>
                     <constraint firstItem="zkS-ng-XvS" firstAttribute="leading" secondItem="kdo-Df-wdg" secondAttribute="trailing" constant="8" id="WHU-QB-H6u"/>
-                    <constraint firstItem="sIV-mg-s88" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="y0h-Y0-O00"/>
+                    <constraint firstItem="sIV-mg-s88" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="y0h-Y0-O00"/>
                     <constraint firstItem="kdo-Df-wdg" firstAttribute="leading" secondItem="4v0-cy-mCF" secondAttribute="trailing" constant="8" id="y8C-WF-91Z"/>
                 </constraints>
                 <variation key="default">

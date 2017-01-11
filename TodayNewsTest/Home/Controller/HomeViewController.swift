@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
             for title in titleArray {
                 let categoryVC = HomeCategoryListController()
                 categoryVC.topCategoryTitle = title
-//                categoryVC.view.backgroundColor = .randomColor()
+                categoryVC.view.backgroundColor = .randomColor()
                 self?.addChildViewController(categoryVC)
             }
             self?.homeTopTitles = titleArray

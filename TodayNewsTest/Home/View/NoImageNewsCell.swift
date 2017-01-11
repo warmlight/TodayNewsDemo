@@ -23,9 +23,11 @@ class NoImageNewsCell: UITableViewCell {
             titleLabel.text = newValue.title ?? ""
             sourceLabel.text = newValue.source ?? ""
             commentCountLabel.text = "\(newValue.commentCount!)评论"
-            let timeInterval = NSTimeInterval(newValue.publishTime!)
-            let timeDate = NSDate(timeIntervalSince1970: timeInterval)
-            publishTime.text = timeAgoSince(timeDate)
+            if let time = newValue.publishTime {
+                let timeInterval = NSTimeInterval(time)
+                let timeDate = NSDate(timeIntervalSince1970: timeInterval)
+                publishTime.text = timeAgoSince(timeDate)
+            }
         }
     }
     

@@ -9,6 +9,9 @@
 import UIKit
 import MJRefresh
 
+let noImageNewsCell = "noImageNewsCell"
+let threeImagesNewsCell = "threeImagesNewsCell"
+
 class HomeCategoryListController: UITableViewController {
     var lastSelectedTabIndex: Int?
     var topCategoryTitle: HomeTopTitle?
@@ -41,10 +44,12 @@ class HomeCategoryListController: UITableViewController {
     private func initUI() {
         self.definesPresentationContext = true //当搜索框弹出时是否覆盖当前的视图控制器
         tableView.frame = CGRectMake(0, 64, SCREENW, SCREENH - (64 + 49))
-        let cellNib = UINib(nibName: "NoImageNewsCell", bundle: nil)
+        let noImageCellNib = UINib(nibName: "NoImageNewsCell", bundle: nil)
+        let threeImagesCellNib = UINib(nibName: "ThreeImagesNewsCell", bundle: nil)
         //从nib加载cell 要和xib里cell的identifier一致
-        tableView.registerNib(cellNib, forCellReuseIdentifier: "noImageNews")
-        tableView.estimatedRowHeight = 50
+        tableView.registerNib(noImageCellNib, forCellReuseIdentifier: noImageNewsCell)
+        tableView.registerNib(threeImagesCellNib, forCellReuseIdentifier: threeImagesNewsCell)
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         //切换tabbar
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(tabBarSelected), name: TabBarDidSelectedNotification, object: nil)
@@ -87,10 +92,15 @@ extension HomeCategoryListController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("noImageNews") as! NoImageNewsCell
         let news = newsArr[indexPath.row]
-        cell.news = news
-//        cell.titleLabel?.text = news.title
-        return cell
+        if let newsImageList = news.imageList where newsImageList.count == 3 {
+            let cell = tableView.dequeueReusableCellWithIdentifier(threeImagesNewsCell) as! ThreeImagesNewsCell
+            cell.news = news
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(noImageNewsCell) as! NoImageNewsCell
+            cell.news = news
+            return cell
+        }
     }
 }

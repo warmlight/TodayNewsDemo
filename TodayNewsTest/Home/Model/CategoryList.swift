@@ -52,6 +52,7 @@ class NewsContent: Mappable {
     var mediaInfo: MediaInfo?
     var middleImage: ImageList?
     var largeimageList: [ImageList]?
+    var videoDetailInfo: VideoDetailInfo?
     
     required init?(_ map: Map) {
     
@@ -85,6 +86,7 @@ class NewsContent: Mappable {
         mediaInfo <- map["media_info"]
         middleImage <- map["middle_image"]
         largeimageList <- map["large_image_list"]
+        videoDetailInfo <- map["video_detail_info"]
     }
 }
 
@@ -106,6 +108,7 @@ class ImageList: Mappable {
     }
     
     func mapping(map: Map) {
+        uri <- map["uri"]
         url <- map["url"]
         width <- map["width"]
         height <- map["height"]
@@ -158,6 +161,35 @@ class MediaInfo: Mappable {
 extension MediaInfo: CustomStringConvertible {
     var description: String {
         return "avatar = \(avatarUrl)\n name = \(name)\n userId = \(userId)\n ---------------------\n"
+    }
+}
+
+
+class VideoDetailInfo: Mappable {
+    var showPgcSubscribe: Int?
+    var videoPreloadingFlag: Int?
+    var groupFlags: Int?
+    var directPlay: Int?
+    var detailVideoLargeImage: ImageList?
+    var videoId: String?
+    var videoWatchCount: Int?
+    var videoType: Int?
+    var videoWatchingCount: Int?
+    
+    required init?(_ map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        showPgcSubscribe <- map["show_pgc_subscribe"]
+        videoPreloadingFlag <- map["video_preloading_flag"]
+        groupFlags <- map["group_flags"]
+        directPlay <- map["direct_play"]
+        detailVideoLargeImage <- map["detail_video_large_image"]
+        videoId <- map["video_id"]
+        videoWatchCount <- map["video_watch_count"]
+        videoType <- map["video_type"]
+        videoWatchingCount <- map["video_watching_count"]
     }
 }
 

@@ -22,7 +22,7 @@ class NoImageNewsCell: UITableViewCell {
         set {
             titleLabel.text = newValue.title ?? ""
             sourceLabel.text = newValue.source ?? ""
-            commentCountLabel.text = "\(newValue.commentCount!)评论"
+            commentCountLabel.text = "\(newValue.commentCount ?? 0)评论"
             if let time = newValue.publishTime {
                 let timeInterval = NSTimeInterval(time)
                 let timeDate = NSDate(timeIntervalSince1970: timeInterval)

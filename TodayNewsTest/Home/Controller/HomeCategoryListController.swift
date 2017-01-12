@@ -9,8 +9,10 @@
 import UIKit
 import MJRefresh
 
-let noImageNewsCell = "noImageNewsCell"
-let threeImagesNewsCell = "threeImagesNewsCell"
+let noImageNewsCell = "NoImageNewsCell"
+let threeImagesNewsCell = "ThreeImagesNewsCell"
+let vedioNewsCell = "VideoNewsCell"
+let singleImageCell = "SingleImageNewsCell"
 
 class HomeCategoryListController: UITableViewController {
     var lastSelectedTabIndex: Int?
@@ -44,17 +46,24 @@ class HomeCategoryListController: UITableViewController {
     private func initUI() {
         self.definesPresentationContext = true //当搜索框弹出时是否覆盖当前的视图控制器
         tableView.frame = CGRectMake(0, 64, SCREENW, SCREENH - (64 + 49))
-        let noImageCellNib = UINib(nibName: "NoImageNewsCell", bundle: nil)
-        let threeImagesCellNib = UINib(nibName: "ThreeImagesNewsCell", bundle: nil)
+        let noImageCellNib = UINib(nibName: noImageNewsCell, bundle: nil)
+        let threeImagesCellNib = UINib(nibName: threeImagesNewsCell, bundle: nil)
+        let vedioCellNib = UINib(nibName: vedioNewsCell, bundle: nil)
+        let singleImageNib = UINib(nibName: singleImageCell, bundle: nil)
+
         //从nib加载cell 要和xib里cell的identifier一致
         tableView.registerNib(noImageCellNib, forCellReuseIdentifier: noImageNewsCell)
         tableView.registerNib(threeImagesCellNib, forCellReuseIdentifier: threeImagesNewsCell)
+        tableView.registerNib(vedioCellNib, forCellReuseIdentifier: vedioNewsCell)
+        tableView.registerNib(singleImageNib, forCellReuseIdentifier: singleImageCell)
+
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         //切换tabbar
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(tabBarSelected), name: TabBarDidSelectedNotification, object: nil)
     }
     
+    //上拉 下拉回调
     func setUpRefreshUI() {
         weak var weakSelf = self
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
@@ -93,10 +102,24 @@ extension HomeCategoryListController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let news = newsArr[indexPath.row]
+        //3图
         if let newsImageList = news.imageList where newsImageList.count == 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier(threeImagesNewsCell) as! ThreeImagesNewsCell
             cell.news = news
             return cell
+        //video
+        } else if let isVideo = news.hasVideo where isVideo{
+            let cell = tableView.dequeueReusableCellWithIdentifier(vedioNewsCell) as! VideoNewsCell
+            cell.news = news
+            return cell
+        
+        //单图
+        } else if let _ = news.middleImage?.url where news.imageList?.count == 0 {
+            print("-----------------------------------\(news.hasVideo)")
+            let cell = tableView.dequeueReusableCellWithIdentifier(singleImageCell) as! SingleImageNewsCell
+            cell.news = news
+            return cell
+        //无图
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(noImageNewsCell) as! NoImageNewsCell
             cell.news = news

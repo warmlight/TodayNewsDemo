@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="noImageNewsCell" selectionStyle="default" indentationWidth="10" rowHeight="184" id="KGk-i7-Jjw" customClass="NoImageNewsCell" customModule="TodayNewsTest" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="NoImageNewsCell" selectionStyle="default" indentationWidth="10" rowHeight="184" id="KGk-i7-Jjw" customClass="NoImageNewsCell" customModule="TodayNewsTest" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="382" height="184"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -16,7 +16,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIV-mg-s88">
-                        <rect key="frame" x="22" y="20" width="338" height="116"/>
+                        <rect key="frame" x="22" y="20" width="338" height="76"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="76" id="5KD-NV-HtZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -28,20 +31,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdo-Df-wdg">
-                        <rect key="frame" x="61" y="147" width="39" height="16"/>
+                        <rect key="frame" x="56" y="128" width="39" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.42902644229999998" green="0.42902644229999998" blue="0.42902644229999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkS-ng-XvS">
-                        <rect key="frame" x="108" y="147" width="52" height="16"/>
+                        <rect key="frame" x="103" y="128" width="52" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.42902644229999998" green="0.42902644229999998" blue="0.42902644229999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="来源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v0-cy-mCF">
-                        <rect key="frame" x="27" y="147" width="26" height="16"/>
-                        <color key="backgroundColor" red="1" green="0.98701337840000003" blue="0.47458667500000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="22" y="107" width="26" height="58"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.42902644230769227" green="0.42902644230769227" blue="0.42902644230769227" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,12 +51,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="sIV-mg-s88" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="2CA-Zx-Onq"/>
-                    <constraint firstItem="4v0-cy-mCF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="19" id="5gB-n4-VfJ"/>
+                    <constraint firstItem="4v0-cy-mCF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="5gB-n4-VfJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="sIV-mg-s88" secondAttribute="trailing" constant="14" id="6Hm-nd-aS6"/>
                     <constraint firstItem="4v0-cy-mCF" firstAttribute="top" secondItem="sIV-mg-s88" secondAttribute="bottom" constant="11" id="HCJ-Nr-Eew"/>
                     <constraint firstItem="4v0-cy-mCF" firstAttribute="centerY" secondItem="kdo-Df-wdg" secondAttribute="centerY" id="JSp-6e-jgp"/>
                     <constraint firstItem="kdo-Df-wdg" firstAttribute="centerY" secondItem="zkS-ng-XvS" secondAttribute="centerY" id="JjJ-UW-2zN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4v0-cy-mCF" secondAttribute="bottom" constant="12" id="Ml8-vh-ktn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4v0-cy-mCF" secondAttribute="bottom" constant="10" id="Ml8-vh-ktn"/>
                     <constraint firstItem="zkS-ng-XvS" firstAttribute="leading" secondItem="kdo-Df-wdg" secondAttribute="trailing" constant="8" id="WHU-QB-H6u"/>
                     <constraint firstItem="sIV-mg-s88" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="y0h-Y0-O00"/>
                     <constraint firstItem="kdo-Df-wdg" firstAttribute="leading" secondItem="4v0-cy-mCF" secondAttribute="trailing" constant="8" id="y8C-WF-91Z"/>

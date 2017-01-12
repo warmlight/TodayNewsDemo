@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CD3E2E521E1F827C0074D986 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E2E511E1F827C0074D986 /* CategoryList.swift */; };
+		CD725BA01E26251E001649C5 /* VideoNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD725B9E1E26251E001649C5 /* VideoNewsCell.swift */; };
+		CD725BA11E26251E001649C5 /* VideoNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD725B9F1E26251E001649C5 /* VideoNewsCell.xib */; };
+		CD725BA31E263A65001649C5 /* NSURL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD725BA21E263A65001649C5 /* NSURL+Extension.swift */; };
+		CD725BA51E2645D6001649C5 /* SingleImageNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD725BA41E2645D6001649C5 /* SingleImageNewsCell.swift */; };
+		CD725BA71E2645F1001649C5 /* SingleImageNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD725BA61E2645F1001649C5 /* SingleImageNewsCell.xib */; };
 		CD731BC81E1643150071A172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD731BC71E1643150071A172 /* AppDelegate.swift */; };
 		CD731BCA1E1643150071A172 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD731BC91E1643150071A172 /* ViewController.swift */; };
 		CD731BCD1E1643150071A172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD731BCB1E1643150071A172 /* Main.storyboard */; };
@@ -57,6 +62,11 @@
 		1B16DAB240101AFA8E1EA5FB /* Pods-TodayNewsTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayNewsTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayNewsTest/Pods-TodayNewsTest.debug.xcconfig"; sourceTree = "<group>"; };
 		BDA7DB4209D4949F7143D62C /* Pods_TodayNewsTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayNewsTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3E2E511E1F827C0074D986 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		CD725B9E1E26251E001649C5 /* VideoNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoNewsCell.swift; sourceTree = "<group>"; };
+		CD725B9F1E26251E001649C5 /* VideoNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoNewsCell.xib; sourceTree = "<group>"; };
+		CD725BA21E263A65001649C5 /* NSURL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Extension.swift"; sourceTree = "<group>"; };
+		CD725BA41E2645D6001649C5 /* SingleImageNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImageNewsCell.swift; sourceTree = "<group>"; };
+		CD725BA61E2645F1001649C5 /* SingleImageNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleImageNewsCell.xib; sourceTree = "<group>"; };
 		CD731BC41E1643150071A172 /* TodayNewsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNewsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD731BC71E1643150071A172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD731BC91E1643150071A172 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +325,7 @@
 			children = (
 				CD91AC9F1E1B72F1002D7601 /* UIColor+Extension.swift */,
 				CD761F861E1DE59900E770B2 /* UIVIew+Extension.swift */,
+				CD725BA21E263A65001649C5 /* NSURL+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +349,10 @@
 				CDA7A6F41E24D53200ADFA76 /* NoImageNewsCell.xib */,
 				CDA7A6F91E25DC7400ADFA76 /* ThreeImagesNewsCell.swift */,
 				CDA7A6FB1E25DCA100ADFA76 /* ThreeImagesNewsCell.xib */,
+				CD725B9E1E26251E001649C5 /* VideoNewsCell.swift */,
+				CD725B9F1E26251E001649C5 /* VideoNewsCell.xib */,
+				CD725BA41E2645D6001649C5 /* SingleImageNewsCell.swift */,
+				CD725BA61E2645F1001649C5 /* SingleImageNewsCell.xib */,
 			);
 			name = RecommendCell;
 			sourceTree = "<group>";
@@ -449,8 +464,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD725BA71E2645F1001649C5 /* SingleImageNewsCell.xib in Resources */,
 				CDA7A6F61E24D53200ADFA76 /* NoImageNewsCell.xib in Resources */,
 				CDA7A6FC1E25DCA100ADFA76 /* ThreeImagesNewsCell.xib in Resources */,
+				CD725BA11E26251E001649C5 /* VideoNewsCell.xib in Resources */,
 				CD731BD21E1643150071A172 /* LaunchScreen.storyboard in Resources */,
 				CD731C081E164A5C0071A172 /* Assets.xcassets in Resources */,
 				CD731BCD1E1643150071A172 /* Main.storyboard in Resources */,
@@ -535,13 +552,16 @@
 				CD91ACA01E1B72F1002D7601 /* UIColor+Extension.swift in Sources */,
 				CD731BCA1E1643150071A172 /* ViewController.swift in Sources */,
 				CDA7A6F81E24ED0B00ADFA76 /* TimeAgo.swift in Sources */,
+				CD725BA31E263A65001649C5 /* NSURL+Extension.swift in Sources */,
 				CD3E2E521E1F827C0074D986 /* CategoryList.swift in Sources */,
+				CD725BA01E26251E001649C5 /* VideoNewsCell.swift in Sources */,
 				CD761F8B1E1E1FD000E770B2 /* URLRequestConvertible.swift in Sources */,
 				CD91ACA41E1B8738002D7601 /* HomeTopTitle.swift in Sources */,
 				CD761F891E1E0E3C00E770B2 /* NavigationController.swift in Sources */,
 				CD91ACA21E1B7C77002D7601 /* ScrollTitleView.swift in Sources */,
 				CDA7A6F51E24D53200ADFA76 /* NoImageNewsCell.swift in Sources */,
 				CD731C131E1B3EB60071A172 /* TabBarController.swift in Sources */,
+				CD725BA51E2645D6001649C5 /* SingleImageNewsCell.swift in Sources */,
 				CDDF039C1E1F7C52008B635E /* HomeCategoryListController.swift in Sources */,
 				CD731BC81E1643150071A172 /* AppDelegate.swift in Sources */,
 				CD731C111E1B3CE20071A172 /* MineViewController.swift in Sources */,

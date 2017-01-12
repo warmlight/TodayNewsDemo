@@ -1,5 +1,5 @@
 //
-//  ThreeImagesNewsCell.swift
+//  VideoNewsCell.swift
 //  TodayNewsTest
 //
 //  Created by yiban on 17/1/11.
@@ -9,19 +9,14 @@
 import UIKit
 import Kingfisher
 
-class ThreeImagesNewsCell: UITableViewCell {
-
-    @IBOutlet weak var firstImageView: UIImageView!
-    @IBOutlet weak var secondImageView: UIImageView!
-    @IBOutlet weak var thirdImageView: UIImageView!
-    
+class VideoNewsCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var videoImageView: UIImageView!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var commentCountLabel: UILabel!
     @IBOutlet weak var publishTimeLabel: UILabel!
-    
-    var newsImagesArr: [UIImageView]?
-    
+    @IBOutlet weak var videoTimeLabel: UILabel!
+
     var news: NewsContent {
         get {
             return self.news
@@ -35,19 +30,26 @@ class ThreeImagesNewsCell: UITableViewCell {
                 let timeDate = NSDate(timeIntervalSince1970: timeInterval)
                 publishTimeLabel.text = timeAgoSince(timeDate)
             }
-            setNewsImage(newValue.imageList)
+            let urlString = newValue.videoDetailInfo?.detailVideoLargeImage?.url
+            videoImageView.kf_setImageWithURL(.newsImageUrl(urlString!))
+            videoTimeLabel.text = videoDurationTime(newValue.videoDuration!)
         }
     }
     
+    func videoDurationTime(time: Int) -> String {
+        let minute = Int(time / 60)
+        let second = time % 60
+        return String(format: "%02d:%02d", minute, second)
+    }
     override func awakeFromNib() {
-        newsImagesArr = [firstImageView, secondImageView, thirdImageView]
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
-    func setNewsImage(images: [ImageList]?) {
-        if let newsImgs = images {
-            for (index, img) in newsImgs.enumerate() {
-                newsImagesArr![index].kf_setImageWithURL(.newsImageUrl(img.url!))
-            }
-        }
-    }
 }

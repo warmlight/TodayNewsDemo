@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="threeImagesNewsCell" selectionStyle="default" indentationWidth="10" rowHeight="215" id="vIN-HY-Qpl" customClass="ThreeImagesNewsCell" customModule="TodayNewsTest" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ThreeImagesNewsCell" selectionStyle="default" indentationWidth="10" rowHeight="215" id="vIN-HY-Qpl" customClass="ThreeImagesNewsCell" customModule="TodayNewsTest" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="518" height="253"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vIN-HY-Qpl" id="dVw-vh-55b">
@@ -40,28 +40,26 @@
                             </mask>
                         </variation>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pj9-P2-51L">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2f-Y4-fmW">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="76" id="Cnj-Zh-6wC"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NND-Ph-VSe">
-                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="14" id="kAB-zw-GwS"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.38415464739999999" green="0.38415464739999999" blue="0.38415464739999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="kAB-zw-GwS"/>
+                                <exclude reference="Cnj-Zh-6wC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="kAB-zw-GwS"/>
+                                <include reference="Cnj-Zh-6wC"/>
                             </mask>
                         </variation>
                     </label>
@@ -103,10 +101,25 @@
                             </mask>
                         </variation>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pj9-P2-51L">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NND-Ph-VSe">
+                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="kAB-zw-GwS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.38415464739999999" green="0.38415464739999999" blue="0.38415464739999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kAB-zw-GwS"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="kAB-zw-GwS"/>
+                            </mask>
+                        </variation>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="J2f-Y4-fmW" firstAttribute="top" secondItem="dVw-vh-55b" secondAttribute="topMargin" constant="14" id="3UJ-hd-6vP"/>
@@ -115,7 +128,7 @@
                     <constraint firstItem="NND-Ph-VSe" firstAttribute="leading" secondItem="dVw-vh-55b" secondAttribute="leadingMargin" constant="10" id="JfC-Pn-AsQ"/>
                     <constraint firstItem="3ch-qI-Dcv" firstAttribute="leading" secondItem="Tov-h8-6D5" secondAttribute="trailing" constant="8" id="SnP-RE-kSo"/>
                     <constraint firstItem="3ch-qI-Dcv" firstAttribute="centerY" secondItem="Pj9-P2-51L" secondAttribute="centerY" id="Vck-jb-vT7"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NND-Ph-VSe" secondAttribute="bottom" constant="14" id="cIb-fv-Qup"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NND-Ph-VSe" secondAttribute="bottom" constant="10" id="cIb-fv-Qup"/>
                     <constraint firstAttribute="trailingMargin" secondItem="J2f-Y4-fmW" secondAttribute="trailing" constant="10" id="dxE-wX-GXM"/>
                     <constraint firstItem="Tov-h8-6D5" firstAttribute="centerY" secondItem="3ch-qI-Dcv" secondAttribute="centerY" id="erZ-fm-YEa"/>
                     <constraint firstItem="NND-Ph-VSe" firstAttribute="centerY" secondItem="g3Z-cB-4xL" secondAttribute="centerY" id="fV9-F7-4QM"/>
@@ -135,11 +148,11 @@
                     <mask key="subviews">
                         <exclude reference="3ch-qI-Dcv"/>
                         <exclude reference="Tov-h8-6D5"/>
+                        <exclude reference="Pj9-P2-51L"/>
                         <exclude reference="J2f-Y4-fmW"/>
-                        <exclude reference="NND-Ph-VSe"/>
                         <exclude reference="g3Z-cB-4xL"/>
                         <exclude reference="rMx-l7-unN"/>
-                        <exclude reference="Pj9-P2-51L"/>
+                        <exclude reference="NND-Ph-VSe"/>
                     </mask>
                     <mask key="constraints">
                         <exclude reference="3UJ-hd-6vP"/>
@@ -169,11 +182,11 @@
                     <mask key="subviews">
                         <include reference="3ch-qI-Dcv"/>
                         <include reference="Tov-h8-6D5"/>
+                        <include reference="Pj9-P2-51L"/>
                         <include reference="J2f-Y4-fmW"/>
-                        <include reference="NND-Ph-VSe"/>
                         <include reference="g3Z-cB-4xL"/>
                         <include reference="rMx-l7-unN"/>
-                        <include reference="Pj9-P2-51L"/>
+                        <include reference="NND-Ph-VSe"/>
                     </mask>
                     <mask key="constraints">
                         <include reference="3UJ-hd-6vP"/>
@@ -209,7 +222,7 @@
                 <outlet property="thirdImageView" destination="Pj9-P2-51L" id="UgX-Ng-u5t"/>
                 <outlet property="titleLabel" destination="J2f-Y4-fmW" id="Bm6-U7-RmH"/>
             </connections>
-            <point key="canvasLocation" x="276" y="597.5"/>
+            <point key="canvasLocation" x="178" y="584.5"/>
         </tableViewCell>
     </objects>
 </document>

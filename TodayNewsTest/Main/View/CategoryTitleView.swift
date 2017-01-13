@@ -16,7 +16,7 @@ class CategoryTitleView: UIView {
     
     var titles = [CategoryTitle]()
     var labels = [CategoryTitleLabel]()
-//    var labelBkgColor: UIColor?
+    var displayAddButton: Bool = false
     var labelTextColor: UIColor?
     var labelSelectedTextColor: UIColor?
     
@@ -28,8 +28,8 @@ class CategoryTitleView: UIView {
     var titlesClosure: ((titleArray: [CategoryTitle])->())?
     var didSelectedTitleLabel: ((titleLable : CategoryTitleLabel)->())?
     
-    //    Swift中，有两种方式来惰性初始化。在变量第一次使用的时候才进行初始化 类似单例
-    //    第一种，简单表达式 第二种，闭包
+    // Swift中，有两种方式来惰性初始化。在变量第一次使用的时候才进行初始化 类似单例
+    // 第一种，简单表达式 第二种，闭包
     lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -67,23 +67,12 @@ class CategoryTitleView: UIView {
     //指定构造器方法名只能是“init” 参数可以随意
     //若参数名和父类相同 需要加上“override”
     //在本类的属性初始化完成后需要调用直接父类的指定构造器
-    init(textColor: UIColor, selectedTextColor: UIColor) {
+    init(textColor: UIColor, selectedTextColor: UIColor, needAddButton: Bool) {
         labelTextColor = textColor
-//        labelBkgColor = labelBackgroudColor
+        displayAddButton = needAddButton
         labelSelectedTextColor = selectedTextColor
         // 在完成所在类和所有父类的属性初始化后，才能使用self，也就是初始化器调用super.init后才能使用self
         super.init(frame: CGRectZero)
-
-//        weak var weakSelf = self
-//        NetworkTools.shareNetworkTool.loadHomeTitlesData { (topTitles) in
-//            let map = Map(mappingType: .FromJSON, JSONDictionary: [:])
-//            let hotCategory = HomeTopTitle.init(map)
-//            hotCategory?.name = "推荐"
-//            hotCategory?.category = "__all__"
-//            weakSelf?.titles.append(hotCategory!)
-//            weakSelf?.titles += topTitles
-//            weakSelf?.setupUI()
-//        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,17 +82,24 @@ class CategoryTitleView: UIView {
     func setupUI() {
         //懒加载滚动视图
         addSubview(scrollView)
-        //懒加载添加按钮
-        addSubview(addButton)
         
-        addButton.snp_makeConstraints { (make) in
-            make.top.bottom.right.equalTo(self)
-            make.width.equalTo(30)
-        }
-        
-        scrollView.snp_makeConstraints { (make) in
-            make.left.top.bottom.equalTo(self)
-            make.right.equalTo(addButton.snp_left)
+        if displayAddButton {
+            //懒加载添加按钮
+            addSubview(addButton)
+            
+            addButton.snp_makeConstraints { (make) in
+                make.top.bottom.right.equalTo(self)
+                make.width.equalTo(30)
+            }
+            scrollView.snp_makeConstraints { (make) in
+                make.left.top.bottom.equalTo(self)
+                make.right.equalTo(addButton.snp_left)
+            }
+            
+        } else {
+            scrollView.snp_makeConstraints { (make) in
+                make.left.top.bottom.right.equalTo(self)
+            }
         }
         
         setupTitlesLable()
@@ -187,7 +183,7 @@ extension CategoryTitleView {
         }
         
         //最大偏移量
-        var maxOffsetX = scrollView.contentSize.width - (SCREENW - addButton.width)
+        var maxOffsetX = scrollView.contentSize.width - (SCREENW - (displayAddButton ? addButton.width : 0))
         if maxOffsetX < 0 {
             maxOffsetX = 0
         }

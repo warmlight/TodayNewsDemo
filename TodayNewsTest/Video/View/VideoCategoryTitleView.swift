@@ -11,7 +11,7 @@ import ObjectMapper
 
 class VideoCategoryTitleView: CategoryTitleView {
     init() {
-        super.init(textColor:UIColor ( red: 0.2207, green: 0.1664, blue: 0.1573, alpha: 1.0 ), selectedTextColor: UIColor.blackColor())
+        super.init(textColor:UIColor ( red: 0.2207, green: 0.1664, blue: 0.1573, alpha: 1.0 ), selectedTextColor: UIColor.blackColor(), needAddButton: false)
         weak var weakSelf = self
         NetworkTools.shareNetworkTool.vedioTitlesData { (topTitles) in
             let map = Map(mappingType: .FromJSON, JSONDictionary: [:])

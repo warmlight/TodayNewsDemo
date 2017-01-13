@@ -232,10 +232,9 @@
 		CD731BC61E1643150071A172 /* TodayNewsTest */ = {
 			isa = PBXGroup;
 			children = (
-				CD725BAC1E276672001649C5 /* Video */,
-				CD731C0C1E1B3CD40071A172 /* Mine */,
 				CD731C031E1648AD0071A172 /* Main */,
-				CD731BFD1E16476D0071A172 /* Login */,
+				CD731C0C1E1B3CD40071A172 /* Mine */,
+				CD725BAC1E276672001649C5 /* Video */,
 				CD731BF51E1644590071A172 /* Home */,
 				CD731BC71E1643150071A172 /* AppDelegate.swift */,
 				CD731BC91E1643150071A172 /* ViewController.swift */,
@@ -308,7 +307,8 @@
 				CD731BFF1E16476D0071A172 /* Model */,
 				CD731C001E16476D0071A172 /* View */,
 			);
-			path = Login;
+			name = Login;
+			path = ../Login;
 			sourceTree = "<group>";
 		};
 		CD731BFE1E16476D0071A172 /* Controller */ = {
@@ -355,6 +355,7 @@
 		CD731C0C1E1B3CD40071A172 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				CD731BFD1E16476D0071A172 /* Login */,
 				CD731C0D1E1B3CD40071A172 /* Controller */,
 				CD731C0E1E1B3CD40071A172 /* Model */,
 				CD731C0F1E1B3CD40071A172 /* View */,

@@ -96,6 +96,7 @@ class HomeCategoryListController: UITableViewController {
 
 extension HomeCategoryListController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.showEmptyContent(newsArr.count)
         print(newsArr.count)
         return newsArr.count
     }

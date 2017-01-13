@@ -9,29 +9,16 @@
 import UIKit
 import ObjectMapper
 
-class HomeTopTitle: Mappable {
-    var category: String?
-
-    var webUrl: String?
-
+class HomeTopTitle: CategoryTitle {
     var concernId: String?
-
-    var iconUrl: String?
-
-    var name: String?
-
     var isSelected: Bool = true
     
     required init?(_ map: Map) {
-        
+        super.init(map)
     }
     
-    func mapping(map: Map) {
-        category <- map["category"]
-        webUrl <- map["web_url"]
-        name <- map["name"]
-        iconUrl <- map["icon_url"]
-        webUrl <- map["web_url"]
+    override func mapping(map: Map) {
+        super.mapping(map)
     }
 }
 

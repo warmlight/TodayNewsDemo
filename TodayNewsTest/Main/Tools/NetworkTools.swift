@@ -74,7 +74,21 @@ class NetworkTools: NSObject {
                 finished(newsList: newsArr)
             }
         }
-
+    }
+    
+    //MARK:- 视频分类
+    func vedioTitlesData(finished: (topTitles: [VedioCategoryTitle]) -> ()) {
+        Alamofire.request(Router.vedioCategory()).responseArray(keyPath: "data") { (response :Response<[VedioCategoryTitle], NSError>) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showErrorWithStatus("加载失败")
+                print(response.result.error)
+                return
+            }
+            
+            if let categories = response.result.value as [VedioCategoryTitle]? {
+                finished(topTitles: categories)
+            }
+        }
     }
     
 }

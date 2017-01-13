@@ -41,6 +41,7 @@ class VideoNewsCell: UITableViewCell {
         let second = time % 60
         return String(format: "%02d:%02d", minute, second)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

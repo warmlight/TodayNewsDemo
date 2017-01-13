@@ -27,15 +27,6 @@ class HomeViewController: UIViewController {
     //        return titleView
     //    }()
     
-    lazy var scrollView: UIScrollView = {
-        $0.frame = UIScreen.mainScreen().bounds
-        $0.pagingEnabled = true
-        $0.delegate = self
-        return $0
-    }(UIScrollView())
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -50,21 +41,21 @@ class HomeViewController: UIViewController {
     }
 
     private func homeTopTitleViewCallBack() {
-        //通过分类标签的数量来添加各个分类下的控制器 设置滚动视图的contentsize
+        //通过分类标签的数量来添加各个分类下的控制器
         titleView.titleArrayClosure { [weak self] (titleArray) in
             for title in titleArray {
                 let categoryVC = HomeCategoryListController()
-                categoryVC.topCategoryTitle = title
-                categoryVC.view.backgroundColor = .randomColor()
+                categoryVC.topCategoryTitle = title as? HomeTopTitle
+//                categoryVC.view.backgroundColor = .randomColor()
                 self?.addChildViewController(categoryVC)
             }
-            self?.homeTopTitles = titleArray
+            self?.homeTopTitles = titleArray as? [HomeTopTitle]
         }
         
         //点击添加按钮后弹出添加分类的模态视图
         titleView.addButtonClickClosure { [weak self] in
             let addCategoryVC = UIViewController()
-            addCategoryVC.view.backgroundColor = .randomColor()
+//            addCategoryVC.view.backgroundColor = .randomColor()
             let nav = UINavigationController(rootViewController: addCategoryVC)
             self?.presentViewController(nav, animated: true, completion: nil)
         }
@@ -77,7 +68,7 @@ class HomeViewController: UIViewController {
     
     //显示分类的view
     func showCurrentCategoryListView(labelTag index: Int) {
-        //取出控制器添加到当前滚动视图上
+        //取出控制器添加到当前视图上
         if let vc = (childViewControllers[index] as UIViewController?) {
             view.addSubview(vc.view)
         }
@@ -89,8 +80,3 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UIScrollViewDelegate {
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-}

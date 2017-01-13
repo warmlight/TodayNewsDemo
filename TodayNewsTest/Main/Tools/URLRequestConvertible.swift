@@ -14,6 +14,7 @@ enum Router: URLRequestConvertible {
     case homeCategory()
     case newsList(String)
     case moreNewsList(String, NSTimeInterval)
+    case vedioCategory()
     
     
     var URLRequest: NSMutableURLRequest {
@@ -23,9 +24,14 @@ enum Router: URLRequestConvertible {
             switch self {
             case .homeCategory:
                 return .GET
+                
             case .newsList:
                 return .GET
+                
             case .moreNewsList:
+                return .GET
+                
+            case .vedioCategory:
                 return .GET
             }
         }
@@ -45,11 +51,26 @@ enum Router: URLRequestConvertible {
         let params : ([String : AnyObject]?) = {
             switch self {
             case .homeCategory:
-                return ["device_id": device_id, "aid": 13, "iid": IID]
+                return ["device_id": device_id,
+                        "aid": 13,
+                        "iid": IID]
+                
             case .newsList(let category):
-                return ["device_id": device_id, "category": category, "iid": IID]
+                return ["device_id": device_id,
+                        "category": category,
+                        "iid": IID]
+                
             case .moreNewsList(let category, let timeInterval):
-                return ["device_id": device_id, "category": category, "iid": IID, "last_refresh_sub_entrance_interval": timeInterval]
+                return ["device_id": device_id,
+                        "category": category, "iid": IID,
+                        "last_refresh_sub_entrance_interval": timeInterval]
+                
+            case .vedioCategory:
+                return ["device_id": device_id,
+                        "version_code": "5.7.1",
+                        "iid": IID,
+                        "device_platform": "iphone",
+                        "os_version": "9.3.2"]
             }
         }()
         
@@ -59,8 +80,12 @@ enum Router: URLRequestConvertible {
             switch self {
             case .homeCategory():
                 relativePath = "article/category/get_subscribed/v1"
+                
             case .newsList, .moreNewsList:
                 relativePath = "api/news/feed/v39/"
+                
+            case .vedioCategory:
+                relativePath = "video_api/get_category/v1/"
             }
             
             var fullUrl = NSURL(string: BASE_URL)!

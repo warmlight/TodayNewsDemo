@@ -33,6 +33,12 @@
 		CD761F871E1DE59900E770B2 /* UIVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD761F861E1DE59900E770B2 /* UIVIew+Extension.swift */; };
 		CD761F891E1E0E3C00E770B2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD761F881E1E0E3C00E770B2 /* NavigationController.swift */; };
 		CD761F8B1E1E1FD000E770B2 /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD761F8A1E1E1FD000E770B2 /* URLRequestConvertible.swift */; };
+		CD77CD711E28A87B00815A85 /* VideoCategoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD77CD701E28A87B00815A85 /* VideoCategoryListController.swift */; };
+		CD77CD731E28C76500815A85 /* NewCategoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD77CD721E28C76500815A85 /* NewCategoryListController.swift */; };
+		CD77CD781E28D28600815A85 /* VideoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD77CD761E28D28600815A85 /* VideoPlayerCell.swift */; };
+		CD77CD791E28D28600815A85 /* VideoPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD77CD771E28D28600815A85 /* VideoPlayerCell.xib */; };
+		CD77CD7B1E28D47700815A85 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD77CD7A1E28D47700815A85 /* VideoPlayerView.swift */; };
+		CD77CD7D1E28E99900815A85 /* VideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD77CD7C1E28E99900815A85 /* VideoPlayerView.xib */; };
 		CD91AC9E1E1B6F66002D7601 /* ConstValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91AC9D1E1B6F66002D7601 /* ConstValue.swift */; };
 		CD91ACA01E1B72F1002D7601 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91AC9F1E1B72F1002D7601 /* UIColor+Extension.swift */; };
 		CD91ACA21E1B7C77002D7601 /* ScrollTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91ACA11E1B7C77002D7601 /* ScrollTitleView.swift */; };
@@ -99,6 +105,12 @@
 		CD761F861E1DE59900E770B2 /* UIVIew+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extension.swift"; sourceTree = "<group>"; };
 		CD761F881E1E0E3C00E770B2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		CD761F8A1E1E1FD000E770B2 /* URLRequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
+		CD77CD701E28A87B00815A85 /* VideoCategoryListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCategoryListController.swift; sourceTree = "<group>"; };
+		CD77CD721E28C76500815A85 /* NewCategoryListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCategoryListController.swift; sourceTree = "<group>"; };
+		CD77CD761E28D28600815A85 /* VideoPlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerCell.swift; sourceTree = "<group>"; };
+		CD77CD771E28D28600815A85 /* VideoPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayerCell.xib; sourceTree = "<group>"; };
+		CD77CD7A1E28D47700815A85 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		CD77CD7C1E28E99900815A85 /* VideoPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayerView.xib; sourceTree = "<group>"; };
 		CD91AC9D1E1B6F66002D7601 /* ConstValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstValue.swift; sourceTree = "<group>"; };
 		CD91AC9F1E1B72F1002D7601 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "../UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CD91ACA11E1B7C77002D7601 /* ScrollTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollTitleView.swift; sourceTree = "<group>"; };
@@ -170,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CD725BB11E2766B0001649C5 /* HomeVideoController.swift */,
+				CD77CD701E28A87B00815A85 /* VideoCategoryListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +200,8 @@
 			children = (
 				CD725BB01E276672001649C5 /* Cell */,
 				CD725BB81E2866A0001649C5 /* VideoCategoryTitleView.swift */,
+				CD77CD7A1E28D47700815A85 /* VideoPlayerView.swift */,
+				CD77CD7C1E28E99900815A85 /* VideoPlayerView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +209,8 @@
 		CD725BB01E276672001649C5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				CD77CD761E28D28600815A85 /* VideoPlayerCell.swift */,
+				CD77CD771E28D28600815A85 /* VideoPlayerCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -348,6 +365,7 @@
 			children = (
 				CD731C121E1B3EB60071A172 /* TabBarController.swift */,
 				CD761F881E1E0E3C00E770B2 /* NavigationController.swift */,
+				CD77CD721E28C76500815A85 /* NewCategoryListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,9 +549,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD77CD791E28D28600815A85 /* VideoPlayerCell.xib in Resources */,
 				CD725BA71E2645F1001649C5 /* SingleImageNewsCell.xib in Resources */,
 				CDA7A6F61E24D53200ADFA76 /* NoImageNewsCell.xib in Resources */,
 				CDA7A6FC1E25DCA100ADFA76 /* ThreeImagesNewsCell.xib in Resources */,
+				CD77CD7D1E28E99900815A85 /* VideoPlayerView.xib in Resources */,
 				CD725BA11E26251E001649C5 /* VideoNewsCell.xib in Resources */,
 				CD731BD21E1643150071A172 /* LaunchScreen.storyboard in Resources */,
 				CD731C081E164A5C0071A172 /* Assets.xcassets in Resources */,
@@ -624,6 +644,8 @@
 				CD725BA31E263A65001649C5 /* NSURL+Extension.swift in Sources */,
 				CD3E2E521E1F827C0074D986 /* CategoryList.swift in Sources */,
 				CD725BA01E26251E001649C5 /* VideoNewsCell.swift in Sources */,
+				CD77CD781E28D28600815A85 /* VideoPlayerCell.swift in Sources */,
+				CD77CD7B1E28D47700815A85 /* VideoPlayerView.swift in Sources */,
 				CD761F8B1E1E1FD000E770B2 /* URLRequestConvertible.swift in Sources */,
 				CD91ACA41E1B8738002D7601 /* HomeTopTitle.swift in Sources */,
 				CD761F891E1E0E3C00E770B2 /* NavigationController.swift in Sources */,
@@ -632,6 +654,8 @@
 				CD725BA91E273376001649C5 /* UITableView+Extension.swift in Sources */,
 				CD731C131E1B3EB60071A172 /* TabBarController.swift in Sources */,
 				CD725BA51E2645D6001649C5 /* SingleImageNewsCell.swift in Sources */,
+				CD77CD731E28C76500815A85 /* NewCategoryListController.swift in Sources */,
+				CD77CD711E28A87B00815A85 /* VideoCategoryListController.swift in Sources */,
 				CDDF039C1E1F7C52008B635E /* HomeCategoryListController.swift in Sources */,
 				CD731BC81E1643150071A172 /* AppDelegate.swift in Sources */,
 				CD725BB21E2766B0001649C5 /* HomeVideoController.swift in Sources */,
